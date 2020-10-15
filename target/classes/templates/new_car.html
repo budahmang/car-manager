@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Car Manager</title>
+    <link rel="stylesheet" th:href="@{../css/style.css}" />
+</head>
+<body>
+    <div align="center">
+        <h1>Add New Car</h1>
+    </div>
+    <div align="center">
+    <br />
+            <form action="#" th:action="@{/save}" th:object="${car}"
+                              method="post">
+                <table border="0" cellpadding="20" class="table table-bordered table-inverse">
+                    <tr>
+                        <td>
+                            <label for="year">Year:</label>
+                            <input id="year" type="number" th:field="*{year}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="make">Make:</label>
+                            <input id="make" type="text" th:field="*{make}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="model">Model:</label>
+                            <input id="model" type="text" th:field="*{model}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="weight">Weight (lbs):</label>
+                            <input id="weight" type="number" th:field="*{weight}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="year">Engine:</label>
+                            <input id="engine" type="text" th:field="*{engine}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="horsepower">Horsepower:</label>
+                            <input id="horsepower" type="number" th:field="*{horsepower}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="torque">Torque (ft-lbs):</label>
+                            <input id="torque" type="number" th:field="*{torque}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="drive">Drive:</label>
+                            <input id="drive" type="text" th:field="*{drive}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="transmission">Transmission:</label>
+                            <input id="transmission" type="text" th:field="*{transmission}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="country">Country:</label>
+                            <input id="country" type="text" th:field="*{country}" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="price">Price (USD):</label>
+                            <input id="price" type="number" th:field="*{price}" required/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><button type="submit">Save</button> </td>
+                    </tr>
+                </table>
+            </form>
+    </div>
+</body>
+</html>

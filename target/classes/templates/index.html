@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Car Manager</title>
+    <script type="text/javascript/css">
+    function clearSearch() {
+        window.location = "[[@{/}]]";
+    }
+    </script>
+    <link rel="stylesheet"th:href="@{../css/style.css}" />
+</head>
+<body>
+<div align="center">
+    <h1>Car Manager</h1>
+    <a th:href="@{/new}">Add New Car</a>
+    <br/><br/>
+    <form th:action="@{/}">
+            Search: <input type="text" name="keyword" id="keyword" size="20" th:value="${keyword}" required />
+            &nbsp;
+            <input type="submit" value="Search" />
+            &nbsp;
+            <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+    <br/><br/>
+    <table border="1" cellpadding="10" class="table table-bordered table-inverse">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Year</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Weight</th>
+            <th>Engine</th>
+            <th>Horsepower</th>
+            <th>Torque</th>
+            <th>Drive</th>
+            <th>Transmission</th>
+            <th>Country</th>
+            <th>Price</th>
+            <th> </th>
+          </tr>
+    </thead>
+        <tbody>
+      <tr th:each="car : ${listCars}">
+            <td>
+                <p th:text="${car.id}"></p>
+            </td>
+            <td>
+                <p th:text="${car.year}"></p>
+            </td>
+            <td>
+                <p th:text="${car.make}"></p>
+            </td>
+            <td>
+                <p th:text="${car.model}"></p>
+            </td>
+            <td>
+                <p th:text="${car.weight} + 'lbs'"></p>
+            </td>
+            <td>
+                <p th:text="${car.engine}"></p>
+            </td>
+            <td>
+                <p th:text="${car.horsepower}"></p>
+            </td>
+            <td>
+                <p th:text="${car.torque} + 'ft-lbs'"></p>
+            </td>
+            <td>
+                <p th:text="${car.drive}"></p>
+            </td>
+            <td>
+                <p th:text="${car.transmission}"></p>
+            </td>
+            <td>
+                <p th:text="${car.country}"></p>
+            </td>
+            <td>
+                <p th:text="'$' + ${car.price}"></p>
+            </td>
+            <td>
+                <a th:href="@{'/edit/' + ${car.id}}">Edit</a>
+                <a th:href="@{'/delete/' + ${car.id}}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+      </table>
+</div>
+</body>
+</html>
