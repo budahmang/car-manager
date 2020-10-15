@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Car Manager</title>
+    <link rel="stylesheet" th:href="@{../css/style.css}" />
 </head>
 <body>
     <div align="center">
@@ -12,7 +13,7 @@
     <br />
             <form action="#" th:action="@{/save}" th:object="${car}"
                               method="post">
-                <table border="0" cellpadding="20">
+                <table border="0" cellpadding="20" class="table table-bordered table-inverse">
                     <tr>
                         <td>
                             <label for="year">Year:</label>

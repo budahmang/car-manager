@@ -15,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.List;
 
-@EnableWebMvc
 @Controller
 public class CarController {
     @Autowired

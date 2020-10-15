@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8"/>
     <title>Car Manager</title>
+    <script type="text/javascript/css">
+    function clearSearch() {
+        window.location = "[[@{/}]]";
+    }
+    </script>
+    <link rel="stylesheet"th:href="@{../css/style.css}" />
 </head>
 <body>
 <div align="center">
@@ -17,7 +23,7 @@
             <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
     </form>
     <br/><br/>
-    <table border="1" cellpadding="10">
+    <table border="1" cellpadding="10" class="table table-bordered table-inverse">
         <thead>
             <tr>
             <th>ID</th>
@@ -75,16 +81,11 @@
             </td>
             <td>
                 <a th:href="@{'/edit/' + ${car.id}}">Edit</a>
-                <a th:href="@{'/delete/' + ${car.id}}">Delete</a>
+                <a th:href="@{'/delete/' + ${car.id}}" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
         </tr>
     </tbody>
       </table>
 </div>
 </body>
-<script type="text/javascript">
-    function clearSearch() {
-        window.location = "[[@{/}]]";
-    }
-</script>
 </html>
